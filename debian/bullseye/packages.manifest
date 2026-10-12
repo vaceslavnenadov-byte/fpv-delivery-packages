@@ -1,0 +1,48 @@
+# Манифест системных пакетов Debian 11 (bullseye) для платформы FPV.
+# Формат: <группа узлов>  <пакет>  <ограничение версии>
+# Пакеты устанавливаются из подписанных репозиториев Debian (или внутреннего зеркала ЦОД,
+# синхронизированного с ними). Дублирование .deb в репозитории не выполняется.
+# Ограничения проверены по составу bullseye / bullseye-security на дату релиза (см. CHANGELOG).
+all                 ca-certificates              >= 20210119
+all                 python3                      >= 3.9.2, << 3.10
+all                 python3-venv                 >= 3.9.2, << 3.10
+all                 python3-apt                  >= 2.2
+all                 acl                          >= 2.2.53
+all                 chrony                       >= 4.0
+all                 rsync                        >= 3.2.3
+all                 curl                         >= 7.74
+all                 gnupg                        >= 2.2.27
+all                 auditd                       >= 1:3.0
+all                 unattended-upgrades          >= 2.8
+all                 apt-transport-https          >= 2.2
+all                 sudo                         >= 1.9.5p2
+all                 openssh-server               >= 1:8.4p1
+all                 rsyslog                      >= 8.2102
+all                 rsyslog-gnutls               >= 8.2102
+all                 logrotate                    >= 3.18
+all                 prometheus-node-exporter     >= 1.1.2
+domain_sssd         realmd                       >= 0.16.3
+domain_sssd         sssd                         >= 2.4.1, << 2.5
+domain_sssd         sssd-tools                   >= 2.4.1, << 2.5
+domain_sssd         adcli                        >= 0.9.0
+domain_sssd         krb5-user                    >= 1.18.3
+domain_sssd         libnss-sss                   >= 2.4.1
+domain_sssd         libpam-sss                   >= 2.4.1
+domain_sssd         samba-common-bin             >= 2:4.13
+domain_sssd         packagekit                   >= 1.2.2
+file_servers        samba                        >= 2:4.13, << 2:4.14
+file_servers        winbind                      >= 2:4.13, << 2:4.14
+file_servers        libnss-winbind               >= 2:4.13
+file_servers        libpam-winbind               >= 2:4.13
+file_servers        attr                         >= 1:2.4.48
+file_servers        smbclient                    >= 2:4.13
+workstations        cifs-utils                   >= 2:6.11
+workstations        keyutils                     >= 1.6.1
+workstations        libpam-mount                 >= 2.16
+workstations        firefox-esr                  >= 91
+workstations        fonts-dejavu                 >= 2.37
+db_servers          postgresql-13                >= 13.13, << 14
+db_servers          python3-psycopg2             >= 2.8.6
+app_servers         python3-pip                  >= 20.3.4
+app_servers         nginx                        >= 1.18.0, << 1.19
+app_servers         ffmpeg                       >= 7:4.3
