@@ -13,6 +13,7 @@
 | `debian/extra/` | внутренние .deb организации (только при наличии законного источника; сейчас пусто) |
 | `python/requirements-ansible.txt` | ansible-core 2.15.13 и зависимости — версии и хеши SHA-256 |
 | `python/requirements-backend.txt` | зависимости backend — версии и хеши SHA-256 |
+| `python/requirements-s3.txt` | необязательные зависимости S3-хранилища (boto3) |
 | `python/wheels/` | wheel-пакеты для изолированной сети (формируются `scripts/fetch-wheels.sh`, в git не хранятся) |
 | `ansible/collections/` | архивы ansible.posix 1.5.4 и community.postgresql 2.4.3 + `SHA256SUMS` + `PROVENANCE.md` |
 | `scripts/` | `verify.sh` (целостность и отсутствие секретов), `fetch-wheels.sh`, `check-debian11.sh` |

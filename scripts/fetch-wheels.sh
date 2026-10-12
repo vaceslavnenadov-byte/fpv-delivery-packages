@@ -9,7 +9,7 @@ PYVER="${PYVER:-3.9.2}"   # версия python3 в Debian 11
 INDEX_ARGS=()
 [[ -n "${PIP_INDEX_URL:-}" ]] && INDEX_ARGS=(--index-url "$PIP_INDEX_URL")
 mkdir -p python/wheels
-for req in python/requirements-ansible.txt python/requirements-backend.txt; do
+for req in python/requirements-ansible.txt python/requirements-backend.txt python/requirements-s3.txt; do
   echo "загрузка: $req"
   python3 -m pip download --require-hashes --only-binary=:all: --no-deps \
     --python-version "$PYVER" --platform "$PLATFORM" --platform manylinux_2_17_x86_64 --platform manylinux_2_28_x86_64 --implementation cp \

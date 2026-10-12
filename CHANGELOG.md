@@ -8,8 +8,13 @@
   db_servers, app_servers.
 * `python/requirements-ansible.txt`: ansible-core 2.15.13 (последняя ветка с поддержкой Python 3.9
   на управляющем узле), зависимости закреплены с хешами.
-* `python/requirements-backend.txt`: FastAPI 0.115.6, SQLAlchemy 2.0.36, psycopg 3.2.3, ldap3 2.9.1,
-  uvicorn 0.34.0, boto3 1.35.90 и зависимости, с хешами.
+* `python/requirements-backend.txt`: FastAPI 0.128.8, Starlette 0.49.3, SQLAlchemy 2.0.36, psycopg 3.2.3,
+  ldap3 2.9.1, uvicorn 0.34.0 и зависимости, с хешами — последние версии с поддержкой Python 3.9,
+  выбранные по результатам pip-audit.
+* `python/requirements-s3.txt`: boto3 (необязательно, только для `FPV_OBJECT_STORE=s3`).
+* `python/requirements-ansible.txt`: cryptography 50.0.2 (исправления безопасности).
+* Известные неустранимые на Python 3.9 уязвимости (anyio, starlette, ansible-core) и оценка их
+  применимости — `fpv-delivery-platform/docs/security-review.md`.
 * Офлайн-архивы коллекций ansible.posix 1.5.4 и community.postgresql 2.4.3 (из ansible 8.7.0, PyPI).
 * Скрипты проверки целостности, загрузки wheels и проверки совместимости с Debian 11.
 
