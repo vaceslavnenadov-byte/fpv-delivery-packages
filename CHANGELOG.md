@@ -1,5 +1,21 @@
 # Журнал изменений fpv-delivery-packages
 
+## v2026.10.1 — 2026-10-13
+
+Переход на Debian 13 «trixie» (решение заказчика от 13.10.2026; Debian 11 снят с поддержки).
+
+* Манифест `debian/trixie/packages.manifest`: Python 3.13, PostgreSQL 17, Samba 4.22, SSSD 2.10,
+  nginx 1.26, ffmpeg 7.1, OpenSSH 10; удалён переходный `apt-transport-https`.
+* `python/requirements-ansible.txt`: ansible-core 2.21.5, cryptography 50.0.2 — без известных уязвимостей.
+* `python/requirements-backend.txt`: FastAPI 0.143.0, Starlette 1.7.0, anyio 4.15.1, pydantic 2.14.1,
+  SQLAlchemy 2.0.54, psycopg 3.2.13, uvicorn 0.54.0, websockets 17.2 — без известных уязвимостей.
+* `python/requirements-s3.txt`: boto3 1.43, urllib3 2.8 — без известных уязвимостей.
+* Коллекции: ansible.posix 2.2.2, community.postgresql 4.2.0 (из ansible 14.5.0, PyPI).
+* `scripts/check-debian13.sh` (формат источников deb822), wheels для Python 3.13 и glibc 2.41.
+
+Проверено: офлайн-установка комплекта в контейнере `python:3.13-slim-trixie` (Debian 13).
+Не проверено: `check-debian13.sh` против зеркала (нет доступа к deb.debian.org в среде сборки).
+
 ## v2026.10.0 — 2026-10-12
 
 Первая версия.

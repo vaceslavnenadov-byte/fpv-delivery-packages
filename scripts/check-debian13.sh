@@ -1,13 +1,22 @@
 #!/bin/bash
-# Проверка доступности пакетов манифеста и соответствия версий в чистом Debian 11.
-# Запуск: docker run --rm -v "$PWD":/pkg -e MIRROR=http://deb.debian.org/debian debian:11 /pkg/scripts/check-debian11.sh
+# Проверка доступности пакетов манифеста и соответствия версий в чистом Debian 13.
+# Запуск: docker run --rm -v "$PWD":/pkg -e MIRROR=http://deb.debian.org/debian debian:13 /pkg/scripts/check-debian13.sh
 set -Eeuo pipefail
 MIRROR="${MIRROR:-http://deb.debian.org/debian}"
 SECURITY="${SECURITY:-http://security.debian.org/debian-security}"
-cat > /etc/apt/sources.list <<SRC
-deb $MIRROR bullseye main
-deb $MIRROR bullseye-updates main
-deb $SECURITY bullseye-security main
+rm -f /etc/apt/sources.list.d/debian.sources
+cat > /etc/apt/sources.list.d/fpv-check.sources <<SRC
+Types: deb
+URIs: $MIRROR
+Suites: trixie trixie-updates
+Components: main
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+
+Types: deb
+URIs: $SECURITY
+Suites: trixie-security
+Components: main
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 SRC
 apt-get update -qq
 rc=0
@@ -24,5 +33,5 @@ while read -r group pkg constraint; do
     esac
   done
   echo "ok $pkg $cand"
-done < /pkg/debian/bullseye/packages.manifest
+done < /pkg/debian/trixie/packages.manifest
 exit $rc

@@ -22,7 +22,7 @@ if grep -rIEn --exclude-dir=.git --exclude-dir=wheels --exclude=verify.sh \
   echo "  обнаружены возможные секреты"; rc=1
 fi
 echo "6. Манифест Debian: формат строк"
-if grep -vE '^\s*(#|$)' debian/bullseye/packages.manifest | grep -vqE '^[a-z_]+\s+[a-z0-9.+-]+\s+(>=|<<|=)'; then
+if grep -vE '^\s*(#|$)' debian/trixie/packages.manifest | grep -vqE '^[a-z_]+\s+[a-z0-9.+-]+\s+(>=|<<|=)'; then
   echo "  некорректные строки манифеста"; rc=1
 fi
 (( rc == 0 )) && echo "OK: репозиторий пакетов $(cat VERSION) проверен" || echo "ОШИБКА: проверка не пройдена"

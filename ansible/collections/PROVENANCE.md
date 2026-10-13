@@ -1,15 +1,15 @@
 # Происхождение архивов Ansible collections
 
-Архивы собраны из официального дистрибутива `ansible==8.7.0` (PyPI), который содержит
+Архивы собраны из официального дистрибутива `ansible==14.5.0` (PyPI), который содержит
 указанные версии коллекций. Использовались только файлы, поставляемые в дистрибутиве
 (без изменений содержимого):
 
 | Архив | Коллекция | Версия | Источник |
 |---|---|---|---|
-| `ansible-posix-1.5.4.tar.gz` | ansible.posix | 1.5.4 | `ansible-8.7.0-py3-none-any.whl`, `ansible_collections/ansible/posix/` |
-| `community-postgresql-2.4.3.tar.gz` | community.postgresql | 2.4.3 | `ansible-8.7.0-py3-none-any.whl`, `ansible_collections/community/postgresql/` |
+| `ansible-posix-2.2.2.tar.gz` | ansible.posix | 2.2.2 | `ansible-14.5.0-py3-none-any.whl`, `ansible_collections/ansible/posix/` |
+| `community-postgresql-4.2.0.tar.gz` | community.postgresql | 4.2.0 | `ansible-14.5.0-py3-none-any.whl`, `ansible_collections/community/postgresql/` |
 
-SHA-256 исходного дистрибутива: `fa7d3bc2dfdb0ab031df645814ff86b15cb5ec041bfbee4041f795abfa5646ca`.
+SHA-256 исходного дистрибутива: `245623ccc2d31d0f6f4bdb63168d550cad305fb032cc43d96e8f61ce8ab0ba84`.
 
 Архивы — это содержимое каталога коллекции (распаковываются в
 `collections/ansible_collections/<namespace>/<name>/`, см. `install.sh --offline`).
