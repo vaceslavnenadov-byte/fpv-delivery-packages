@@ -15,7 +15,7 @@
   `extra/SHA256SUMS` и `CHANGELOG.md`. В текущей версии каталог пуст.
 * Совместимость манифеста с Debian 13 проверяется `scripts/check-debian13.sh` в контейнере
   `debian:13` с доступом к зеркалу.
-* `fpv/` — собранные пакеты самой платформы (`fpv-platform`, `fpv-drone-agent`) из ветки
+* `fpv/` — собранные пакеты самой платформы (`fpv-platform`, `fpv-drone-agent`, `fpv-desktop`) из ветки
   `claude/complex-system-development-ucubxt` репозитория `fpv-delivery-platform`
   (`packaging/debian/build-debs.sh`), с `fpv/SHA256SUMS`. Из них собирается локальный
   apt-репозиторий: `packaging/debian/make-apt-repo.sh /srv/packages --key "…" debian/fpv/*.deb`.
